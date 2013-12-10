@@ -40,29 +40,29 @@ public class Ue2Applet extends Applet {
 			return;
 
 		case ADD:
-			result = (short) ((p1 + p2) & 0xffff);
+			result = (short) (p1 + p2);
 			break;
 
 		case SUB:
-			result = (short) ((p1 - p2) & 0xffff);
+			result = (short) (p1 - p2);
 			break;
 
 		case MUL:
-			result = (short) ((p1 * p2) & 0xffff);
+			result = (short) (p1 * p2);
 			break;
 
 		// case DIV:
 
 		case AND:
-			result = (short) ((p1 & p2) & 0xffff);
+			result = (short) (p1 & p2);
 			break;
 
 		case OR:
-			result = (short) ((p1 | p2) & 0xffff);
+			result = (short) (p1 | p2);
 			break;
 
 		case NOT:
-			result = (short) ((~p1) & 0xffff);
+			result = (short) (~p1);
 			break;
 
 		default:
