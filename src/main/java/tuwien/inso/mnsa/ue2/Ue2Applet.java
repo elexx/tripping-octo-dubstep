@@ -32,8 +32,6 @@ public class Ue2Applet extends Applet {
 		byte ins = buf[ISO7816.OFFSET_INS];
 		short p1 = buf[ISO7816.OFFSET_P1];
 		short p2 = buf[ISO7816.OFFSET_P2];
-		
-		System.out.println("ins: " + ins);
 
 		short result = 0;
 
