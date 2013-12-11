@@ -5,13 +5,13 @@ import javacard.framework.*;
 public class Ue2Applet extends Applet {
 
 	public static final byte NOP = (byte) 0x00;
-	public static final byte ADD = (byte) 0x02;
-	public static final byte SUB = (byte) 0x04;
-	public static final byte MUL = (byte) 0x06;
-	public static final byte DIV = (byte) 0x08;
-	public static final byte AND = (byte) 0x0A;
-	public static final byte OR = (byte) 0x0C;
-	public static final byte NOT = (byte) 0x0E;
+	public static final byte ADD = (byte) 0x01;
+	public static final byte SUB = (byte) 0x02;
+	public static final byte MUL = (byte) 0x03;
+	public static final byte DIV = (byte) 0x04;
+	public static final byte AND = (byte) 0x05;
+	public static final byte OR = (byte) 0x06;
+	public static final byte NOT = (byte) 0x07;
 
 	public static void install(byte[] bArray, short bOffset, byte bLength) {
 		new Ue2Applet();
