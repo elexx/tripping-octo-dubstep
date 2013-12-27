@@ -13,6 +13,9 @@ public class Ue2Applet extends Applet {
 	public static final byte OR = (byte) 0x06;
 	public static final byte NOT = (byte) 0x07;
 
+	public static final boolean ALLOW_NEGATIVE_INPUT = false;
+	public static final boolean ALLOW_NEGATIVE_OUTPUT = false;
+
 	public static void install(byte[] bArray, short bOffset, byte bLength) {
 		new Ue2Applet();
 	}
@@ -32,6 +35,7 @@ public class Ue2Applet extends Applet {
 		byte ins = buf[ISO7816.OFFSET_INS];
 		short p1 = buf[ISO7816.OFFSET_P1];
 		short p2 = buf[ISO7816.OFFSET_P2];
+		boolean numericOperation = false;
 
 		short result = 0;
 
@@ -41,14 +45,17 @@ public class Ue2Applet extends Applet {
 
 		case ADD:
 			result = (short) (p1 + p2);
+			numericOperation = true;
 			break;
 
 		case SUB:
 			result = (short) (p1 - p2);
+			numericOperation = true;
 			break;
 
 		case MUL:
 			result = (short) (p1 * p2);
+			numericOperation = true;
 			break;
 
 		// case DIV:
@@ -68,6 +75,17 @@ public class Ue2Applet extends Applet {
 		default:
 			ISOException.throwIt(ISO7816.SW_INS_NOT_SUPPORTED);
 			return;
+		}
+
+		if (numericOperation) {
+			if (!ALLOW_NEGATIVE_INPUT && (p1 < 0 || p2 < 0)) {
+				ISOException.throwIt(ISO7816.SW_INCORRECT_P1P2);
+				return;
+			}
+			if ( !ALLOW_NEGATIVE_OUTPUT && result < 0) {
+				ISOException.throwIt(ISO7816.SW_INCORRECT_P1P2);
+				return;
+			}
 		}
 
 		buf[0] = (byte) (result & 0xff);
