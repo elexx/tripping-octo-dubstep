@@ -123,7 +123,7 @@ Die Eingabe- und Ausgabewerte sind alle \textit{signed} zu verstehen, für die E
 NOT \texttt{0x01} wird somit zu NOT \texttt{0x0001} und liefert als Ergebnis somit \texttt{0xFFFE}, nicht, wie eventuell intuitiv zu erwarten wäre, zu \texttt{0x(00)FE}. Dies mag so ausgedrückt unnötig verkompliziert erscheinen, ist jedoch konsequent mit den arithmetischen Operationen, wo, um ein korrektes Ergebnis zu erzielen, ebenfalls zuerst auf \textit{unsigned short} gecastet werden muss.
 
 \subsection{JUnit-Test}
-Da die JavaCard-Umgebung für JUnit-Tests ungeeignet ist\footnote{dies ist vermutlich mit mangelnder Nachfrage unter der Entwickler-Community zu begründen, es existiert auch reltiv wenig Online-Dokumentation zu dem Thema.}, ergeben sich folgende zwei Möglichkeiten der Umsetzung:
+Da die JavaCard-Umgebung für JUnit-Tests ungeeignet ist\footnote{dies ist vermutlich mit mangelnder Nachfrage unter der Entwickler-Community zu begründen, es existiert auch relativ wenig Online-Dokumentation zu dem Thema.}, ergeben sich folgende zwei Möglichkeiten der Umsetzung:
 
 Einerseits lässt sich das Testen realisieren, indem zwei Projekte erstellt werden: Ein JavaCard-Projekt mit Applet, und ein zweites (reguläres J2SE-)Projekt, welches mittels Maven-Plugin die Java-Datei des Applets einbindet und dann mittels JUnit testet.
 
