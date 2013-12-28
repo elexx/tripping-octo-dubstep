@@ -13,8 +13,8 @@ public class Ue2Applet extends Applet {
 	public static final byte OR = (byte) 0x06;
 	public static final byte NOT = (byte) 0x07;
 
-	public static final boolean ALLOW_NEGATIVE_INPUT = false;
-	public static final boolean ALLOW_NEGATIVE_OUTPUT = false;
+	public static final boolean ALLOW_NEGATIVE_INPUT = true;
+	public static final boolean ALLOW_NEGATIVE_OUTPUT = true;
 
 	public static void install(byte[] bArray, short bOffset, byte bLength) {
 		new Ue2Applet();
